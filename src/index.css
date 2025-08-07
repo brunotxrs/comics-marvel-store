@@ -1,3 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+/* this area for fonts */
+@font-face {
+  font-family: "Nuckle";
+  src: url('../src/assets/fonts/Nuckle-Semibold.ttf') format('opentype');
+  font-weight: bold;
+
+}
+
+@font-face {
+  font-family: "CabinetGrotesk ";
+  src: url('../src/assets/fonts/CabinetGrotesk-Extrabold.otf') format('opentype');
+  font-weight: bolder;
+
+}
+
+:root {
+  --font-nuckle: "Nuckle";
+  --font-cabinet_grotesk: "CabinetGrotesk "; 
+  --first-color: #BF1B2C;
+  --title: 1.0625rem;
+  --subtitle: 1.5rem;
+  --paragraph: 0.875rem;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +42,20 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media screen and (width > 48rem) {
+  :root {
+    --title: 1.125rem;
+    --subtitle: 1.625rem;
+    --paragraph: 0.875rem;
+  } 
+}
+
+@media screen and (width > 64rem) {
+  :root {
+    --title: 1.25rem;
+    --subtitle: 2.25rem;
+    --paragraph: 1rem;
+  } 
 }
