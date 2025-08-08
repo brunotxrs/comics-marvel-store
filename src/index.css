@@ -5,35 +5,40 @@
 
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 /* this area for fonts */
 @font-face {
   font-family: "Nuckle";
   src: url('../src/assets/fonts/Nuckle-Semibold.ttf') format('opentype');
-  font-weight: bold;
+  font-weight: normal;
 
 }
 
 @font-face {
   font-family: "CabinetGrotesk ";
   src: url('../src/assets/fonts/CabinetGrotesk-Extrabold.otf') format('opentype');
-  font-weight: bolder;
+  font-weight: normal;
 
 }
 
 :root {
   --font-nuckle: "Nuckle";
   --font-cabinet_grotesk: "CabinetGrotesk "; 
+  --font-rubik: "Rubik", sans-serif;
   --first-color: #BF1B2C;
   --second-color: #F3F3F3;
+  --third-color: #333333;
   --title: 1.0625rem;
   --subtitle: 1.5rem;
   --paragraph: 0.875rem;
+
 }
 
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: var(--font-rubik), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
