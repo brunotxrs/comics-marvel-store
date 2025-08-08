@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2cb4992b.css",
+    "main.js": "/static/js/main.af57d1b5.js",
+    "static/js/453.8ce007cb.chunk.js": "/static/js/453.8ce007cb.chunk.js",
+    "static/media/logo-comics-marvel-store.svg": "/static/media/logo-comics-marvel-store.53be59f1b8b98bb55657ebd68d806bf0.svg",
+    "static/media/Nuckle-Semibold.ttf": "/static/media/Nuckle-Semibold.0e8a7a41a7d190592f6d.ttf",
+    "static/media/CabinetGrotesk-Extrabold.otf": "/static/media/CabinetGrotesk-Extrabold.60328d5e9fe66fe3666b.otf",
+    "index.html": "/index.html",
+    "main.2cb4992b.css.map": "/static/css/main.2cb4992b.css.map",
+    "main.af57d1b5.js.map": "/static/js/main.af57d1b5.js.map",
+    "453.8ce007cb.chunk.js.map": "/static/js/453.8ce007cb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2cb4992b.css",
+    "static/js/main.af57d1b5.js"
+  ]
+}
