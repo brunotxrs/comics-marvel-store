@@ -1,6 +1,6 @@
 import {  
-    Container, Box_left, 
-    Img, Box_right, Count_Cart, 
+    Container, BoxLeft, 
+    Img, BoxRight, CountCart, 
     StyleIcon  } from './styles'
 import logoCMS from '../../assets/svg/logo-comics-marvel-store.svg'
 import { faBars, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
@@ -12,18 +12,18 @@ function Header(){
     return(
         <>
             <Container>
-                <Box_left>
+                <BoxLeft>
                     <StyleIcon icon={faBars} />
-                </Box_left>
+                </BoxLeft>
 
                 <figure>
                     <Img src={logoCMS} alt="Comics Marvel Store Logo"/>
                 </figure>
 
-                <Box_right>
-                    <Count_Cart>0</Count_Cart>
+                <BoxRight>
+                    <CountCart>0</CountCart>
                     <StyleIcon icon={faShoppingCart} />
-                </Box_right>
+                </BoxRight>
 
             </Container>
         </>

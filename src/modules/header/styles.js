@@ -32,7 +32,7 @@ export const Container = styled.header `
     }
 `;
 
-export const Box_left = styled.div `
+export const BoxLeft = styled.div `
     
     left: 1.875rem;
     position: absolute;
@@ -93,7 +93,7 @@ export const Img = styled.img`
 
 `;
 
-export const Box_right = styled.div `
+export const BoxRight = styled.div `
     right: 1.875rem;
     position: absolute;
     height: 7.5rem;
@@ -116,7 +116,7 @@ export const Box_right = styled.div `
 
 `
 
-export const Count_Cart = styled.span `
+export const CountCart = styled.span `
     height: 1.375rem;
     position: absolute;
     top: 1.5625rem;
