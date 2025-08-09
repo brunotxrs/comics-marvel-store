@@ -2,69 +2,64 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 // import md5 from "js-md5";
 
-
 export function useFetchApiComicVine(){
     const [characters, setCharacters] = useState([]);
     
-
     useEffect(() => {
         const fetchCharacters = async () => {
-            
             try {
                 const KEY_API = '1ea7892a7a15cb41314f574fcc6277380d2c345e';
-                const urlComicVineDeveloper = `/api/issues/?api_key=${KEY_API}&format=json&limit=20`;
+                
+                // Chame o seu novo endpoint serverless
+                const urlServerless = `/api/comic-vine/?api_key=${KEY_API}&format=json&limit=20`;
 
-                const urlComicVine = `https://comicvine.gamespot.com/api/issues/?api_key=${KEY_API}&format=json&limit=20`;
-                const response = await axios.get(urlComicVine);
+                const response = await axios.get(urlServerless);
 
                 console.log('Dados da API Comic Vine:', response.data.results);
                 setCharacters(response.data.results);
-                
             } catch (error) {
-                console.error("Erro ao buscar personagens da Comic Vine:", error);   
+                console.error("Erro ao buscar personagens da Comic Vine:", error);   
             }
-
         }
-
         fetchCharacters();
-
     }, [])
-
 
     return characters;
-
 }
 
-export function useFetchApiComicVineBackground(){
-    const [charactersIssues, setCharactersIssues] = useState([]);
+
+// export function useFetchApiComicVine(){
+//     const [characters, setCharacters] = useState([]);
     
 
-    useEffect(() => {
-        const fetchCharacters = async () => {
+//     useEffect(() => {
+//         const fetchCharacters = async () => {
             
-            try {
-                const KEY_API = '1ea7892a7a15cb41314f574fcc6277380d2c345e';
-                const urlComicVineIssues = `/api/issues/?api_key=${KEY_API}&format=json&limit=10`;
+//             try {
+//                 const KEY_API = '1ea7892a7a15cb41314f574fcc6277380d2c345e';
+//                 const urlComicVineDeveloper = `/api/issues/?api_key=${KEY_API}&format=json&limit=20`;
 
-                const response = await axios.get(urlComicVineIssues);
+//                 const urlComicVine = `https://comicvine.gamespot.com/api/issues/?api_key=${KEY_API}&format=json&limit=20`;
+//                 const response = await axios.get(urlComicVine);
 
-                console.log('Dados da API Comic Vine Issues:', response.data.results);
-                setCharactersIssues(response.data.results);
+//                 console.log('Dados da API Comic Vine:', response.data.results);
+//                 setCharacters(response.data.results);
                 
-            } catch (error) {
-                console.error("Erro ao buscar HQs da Comic Vine:", error);   
-            }
+//             } catch (error) {
+//                 console.error("Erro ao buscar personagens da Comic Vine:", error);   
+//             }
 
-        }
+//         }
 
-        fetchCharacters();
+//         fetchCharacters();
 
-    }, [])
+//     }, [])
 
 
-    return charactersIssues;
+//     return characters;
 
-}
+// }
+
 
 // These comments are the structure for requesting the Marvel API, which is currently under maintenance. 
 
