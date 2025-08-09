@@ -12,8 +12,9 @@ export function useFetchApiComicVine(){
             
             try {
                 const KEY_API = '1ea7892a7a15cb41314f574fcc6277380d2c345e';
-                const urlComicVine = `/api/issues/?api_key=${KEY_API}&format=json&limit=20`;
+                const urlComicVineDeveloper = `/api/issues/?api_key=${KEY_API}&format=json&limit=20`;
 
+                const urlComicVine = `https://comicvine.gamespot.com/api/issues/?api_key=${KEY_API}&format=json&limit=20`;
                 const response = await axios.get(urlComicVine);
 
                 console.log('Dados da API Comic Vine:', response.data.results);
