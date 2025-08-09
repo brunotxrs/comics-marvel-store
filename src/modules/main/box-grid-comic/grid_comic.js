@@ -2,30 +2,37 @@ import { useEffect, useState, useRef } from 'react';
 import { 
     ContainerGridComic, BoxGridComic, 
     Loader, LiComic, ImgComic, H2Comic,
-    PriceP, NavDotsContainerComic, NavDotComic
+    PriceP, NavDotsContainerComic, NavDotComic, 
+    ComicImageContainer, CartIconShopping
 } from '../styles';
 import { useFetchApiComicVine } from '../../../services/api';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 
-function ModuleGridComic(){
+function ModuleGridComic(onAddToCart){
     const allComics = useFetchApiComicVine();
     const [ randomComics, setRandomComics ] = useState([]);
-    const [ activeDot, setActiveDot ] = useState(0); // Novo estado para o pontinho ativo
-    const containerRef = useRef(null); // Para referenciar o DOM do container
+    const [ activeDot, setActiveDot ] = useState(0); 
+    const containerRef = useRef(null); 
 
     useEffect(() => {
         if(allComics && allComics.length > 0){
             // Embaralha o array de quadrinhos UMA VEZ
             const shuffled = [...allComics].sort(() => 0.5 - Math.random());
             
-            // Pega os 12 primeiros (ou 10, dependendo do seu limit)
+            // Pega os 12 primeiros
             const sliced = shuffled.slice(0, 12);
+            
+            const comicsWithPrice = sliced.map(comic => ({
+                ...comic,
+                price: (Math.random() * (20 - 5) + 5).toFixed(2) // Gera um preço entre 5 e 20 com 2 casas decimais
+            }));
             
             // Separa em 3 listas de 4
             setRandomComics([
-                sliced.slice(0, 4),
-                sliced.slice(4, 8),
-                sliced.slice(8, 12)
+                comicsWithPrice.slice(0, 4),
+                comicsWithPrice.slice(4, 8),
+                comicsWithPrice.slice(8, 12)
             ]);
         } 
     }, [allComics]);
@@ -70,9 +77,13 @@ function ModuleGridComic(){
                         <BoxGridComic key={boxIndex}>
                             {comics.map((comic) => (
                                 <LiComic key={comic.id}>
-                                    <ImgComic src={comic.image.original_url} alt={comic.name}/>
+                                    <ComicImageContainer>
+                                        <ImgComic src={comic.image.original_url} alt={comic.name}/>
+                                        <CartIconShopping icon={faCartShopping} onClick={() => onAddToCart(comic)} />
+                                    </ComicImageContainer>
+
                                     <H2Comic>{comic.name}</H2Comic>
-                                    <PriceP>0.0</PriceP>
+                                    <PriceP>R${comic.price}</PriceP>
                                 </LiComic>
                             ))}
                         </BoxGridComic>
