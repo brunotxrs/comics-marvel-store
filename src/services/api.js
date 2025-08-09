@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"; 
-import axios from "axios";
 // import md5 from "js-md5";
 
 export function useFetchApiComicVine(){
@@ -10,13 +9,21 @@ export function useFetchApiComicVine(){
             try {
                 const KEY_API = '1ea7892a7a15cb41314f574fcc6277380d2c345e';
                 
-                // Chame o seu novo endpoint serverless
                 const urlServerless = `/api/comic-vine/?api_key=${KEY_API}&format=json&limit=20`;
 
-                const response = await axios.get(urlServerless);
+                // Use fetch nativo do navegador para a requisição
+                const response = await fetch(urlServerless);
 
-                console.log('Dados da API Comic Vine:', response.data);
-                setCharacters(response.data);
+                // Verifique se a resposta foi bem-sucedida
+                if (!response.ok) {
+                    throw new Error(`Erro na requisição: ${response.statusText}`);
+                }
+
+                // Extraia o JSON da resposta
+                const data = await response.json();
+                
+                console.log('Dados da API Comic Vine:', data);
+                setCharacters(data);
             } catch (error) {
                 console.error("Erro ao buscar personagens da Comic Vine:", error);   
             }
