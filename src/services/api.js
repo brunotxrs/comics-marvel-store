@@ -15,8 +15,8 @@ export function useFetchApiComicVine(){
 
                 const response = await axios.get(urlServerless);
 
-                console.log('Dados da API Comic Vine:', response.data.results);
-                setCharacters(response.data.results);
+                console.log('Dados da API Comic Vine:', response.data);
+                setCharacters(response.data);
             } catch (error) {
                 console.error("Erro ao buscar personagens da Comic Vine:", error);   
             }
