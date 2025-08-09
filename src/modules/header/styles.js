@@ -7,7 +7,6 @@ export const Container = styled.header `
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--second-color);
 
     @media screen and (width > 48rem) {
         height: 10.625rem;
@@ -22,7 +21,7 @@ export const Container = styled.header `
 
 
     @media screen and (width > 64rem) and (orientation: landscape){
-        height: 4.375rem;
+        height: 7rem;
         max-width: 80rem;
         margin: auto;
         display: flex;
@@ -73,8 +72,8 @@ export const StyleIcon = styled(FontAwesomeIcon) `
     }
 
     @media screen and (width > 64rem) and (orientation: landscape) {
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 2rem;
+        height: 2rem;
     
     }
 `
@@ -87,7 +86,7 @@ export const Img = styled.img`
     }
 
     @media screen and (width > 64rem) and (orientation: landscape) {
-        width: 3.125rem;
+        width: 5rem;
     
     }
 
@@ -140,7 +139,7 @@ export const CountCart = styled.span `
 
     @media screen and (width > 64rem) and (orientation: landscape) {
         height: 1.25rem;
-        top: 0.3125rem;
+        top: 1.3125rem;
         right: -0.625rem;
         font-size: var(--paragraph);
     }
