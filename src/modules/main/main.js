@@ -1,12 +1,12 @@
-import { MainContainer } from './styles';
-import { useFetchApiComicVine, useFetchApiComicVineBackground } from '../../services/api';
+import ModuleBanners from './box-banner/banners';
 import ModuleBoxInfo from './box-info/box_info';
 import ModuleBoxComicShop from './box-comic-shop/comic-shop';
+import { MainContainer, TextH2, ParagraphP } from './styles';
+import ModuleGridComic from './box-grid-comic/grid_comic';
+
+
 
 function Main() {
-
-  const characters = useFetchApiComicVine();
-  const charactersIssues = useFetchApiComicVineBackground();
  
   return (
     <MainContainer>
@@ -14,14 +14,17 @@ function Main() {
 
       {/* benefits of ComicShop */}
       <ModuleBoxComicShop />
-      
+
+      {/* area for banner */}
+      <ModuleBanners />
+
+      {/* here one text */}
+      <TextH2>Novas chegadas</TextH2>
+      <ParagraphP>Existem muitas variações de passagens</ParagraphP>
+
       {/* this area for exhibition for Magazine Comics */}
-      {/* {characters.map((character) => (
-        <li key={character.id}>
-          <h2>{character.name}</h2>
-          <img src={character.image.original_url} alt={character.name} />
-        </li>
-      ))} */}
+      <ModuleGridComic />
+
     </MainContainer>
   );
 }
