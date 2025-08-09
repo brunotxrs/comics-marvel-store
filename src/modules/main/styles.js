@@ -1,4 +1,6 @@
 import styled, { keyframes } from 'styled-components';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const slideUp = keyframes`
   from {
@@ -312,6 +314,7 @@ export const BoxGridComic = styled.ul `
 
 export const LiComic = styled.li `
   height: 100%;
+  list-style: none;
   
 `;
 
@@ -355,4 +358,27 @@ export const NavDotComic = styled.span`
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.3s ease;
+`;
+
+export const ComicImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+export const CartIconShopping = styled(FontAwesomeIcon)`
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  background-color: var(--first-color);
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px var(--third-color);
+  transition: transform 0.2s ease-in-out;
+  z-index: 10;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
