@@ -14,7 +14,7 @@ function ModuleGridComic(){
     const containerRef = useRef(null); // Para referenciar o DOM do container
 
     useEffect(() => {
-        if(allComics.length > 0){
+        if(allComics && allComics.length > 0){
             // Embaralha o array de quadrinhos UMA VEZ
             const shuffled = [...allComics].sort(() => 0.5 - Math.random());
             
