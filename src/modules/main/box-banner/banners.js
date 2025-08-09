@@ -8,7 +8,7 @@ function ModuleBanners(){
     const [randomBanners, setRandomBanners] = useState([]);
 
     useEffect(() => {
-        if(allBanners.length > 0 ){
+        if(allBanners && allBanners.length > 0){
             const shuffledBanners = [...allBanners].sort(() => 0.5 - Math.random());
 
 
