@@ -2,11 +2,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
 export const Container = styled.header `
-    height: 7.5rem;
-    padding: 0.3125rem 0.625rem;
+    padding: 0.9rem 1.625rem 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background: white;
+    z-index: 50;
+    height: 3.4375rem;
 
     @media screen and (width > 48rem) {
         height: 10.625rem;
@@ -57,7 +62,8 @@ export const BoxLeft = styled.div `
 
 export const StyleIcon = styled(FontAwesomeIcon) `
     width: 1.875rem;
-    height: 1.875rem;
+    height: 1.5rem;
+    color: var(--first-color);
 
     @media screen and (width > 48rem) {
         width: 2.5rem;
@@ -80,6 +86,7 @@ export const StyleIcon = styled(FontAwesomeIcon) `
 
 export const Img = styled.img`
     width: 6.25rem;
+    display: none;
     
     @media screen and (width > 48rem){
         width: 9.375rem;
@@ -95,7 +102,7 @@ export const Img = styled.img`
 export const BoxRight = styled.div `
     right: 1.875rem;
     position: absolute;
-    height: 7.5rem;
+    height: 100%;
     align-content: center;
 
     @media screen and (width > 48rem){
@@ -118,9 +125,9 @@ export const BoxRight = styled.div `
 export const CountCart = styled.span `
     height: 1.375rem;
     position: absolute;
-    top: 1.5625rem;
+    top: 0.65rem;
     right: 0.3125rem;
-    background: var(--first-color);
+    color: var(--second-color);
     font-family: var(--font-cabinet_grotesk);
     font-size: var(--title);
     padding: 0.0625rem 0.3125rem;
