@@ -23,7 +23,7 @@ export function useFetchApiComicVine(){
                 const data = await response.json();
                 
                 console.log('Dados da API Comic Vine:', data);
-                setCharacters(data);
+                setCharacters(data.results);
             } catch (error) {
                 console.error("Erro ao buscar personagens da Comic Vine:", error);   
             }
@@ -33,39 +33,6 @@ export function useFetchApiComicVine(){
 
     return characters;
 }
-
-
-// export function useFetchApiComicVine(){
-//     const [characters, setCharacters] = useState([]);
-    
-
-//     useEffect(() => {
-//         const fetchCharacters = async () => {
-            
-//             try {
-//                 const KEY_API = '1ea7892a7a15cb41314f574fcc6277380d2c345e';
-//                 const urlComicVineDeveloper = `/api/issues/?api_key=${KEY_API}&format=json&limit=20`;
-
-//                 const urlComicVine = `https://comicvine.gamespot.com/api/issues/?api_key=${KEY_API}&format=json&limit=20`;
-//                 const response = await axios.get(urlComicVine);
-
-//                 console.log('Dados da API Comic Vine:', response.data.results);
-//                 setCharacters(response.data.results);
-                
-//             } catch (error) {
-//                 console.error("Erro ao buscar personagens da Comic Vine:", error);   
-//             }
-
-//         }
-
-//         fetchCharacters();
-
-//     }, [])
-
-
-//     return characters;
-
-// }
 
 
 // These comments are the structure for requesting the Marvel API, which is currently under maintenance. 
