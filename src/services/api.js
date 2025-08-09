@@ -12,7 +12,7 @@ export function useFetchApiComicVine(){
             
             try {
                 const KEY_API = '1ea7892a7a15cb41314f574fcc6277380d2c345e';
-                const urlComicVine = `/api/issues/?api_key=${KEY_API}&format=json&limit=10`;
+                const urlComicVine = `/api/issues/?api_key=${KEY_API}&format=json&limit=20`;
 
                 const response = await axios.get(urlComicVine);
 
