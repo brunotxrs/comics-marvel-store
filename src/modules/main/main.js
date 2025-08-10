@@ -6,7 +6,7 @@ import ModuleGridComic from './box-grid-comic/grid_comic';
 
 
 
-function Main() {
+function Main({ detailsComic }) {
  
   return (
     <MainContainer>
@@ -23,7 +23,7 @@ function Main() {
       <ParagraphP>Existem muitas variações de passagens</ParagraphP>
 
       {/* this area for exhibition for Magazine Comics */}
-      <ModuleGridComic />
+      <ModuleGridComic detailsComic={detailsComic}/>
 
     </MainContainer>
   );

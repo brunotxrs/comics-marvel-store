@@ -3,16 +3,17 @@ import {
     ContainerGridComic, BoxGridComic, 
     Loader, LiComic, ImgComic, H2Comic,
     PriceP, NavDotsContainerComic, NavDotComic, 
-    ComicImageContainer, CartIconShopping
+    ComicImageContainer, CartIconShopping,
+    IconToDetails
 } from '../styles';
 import { useFetchApiComicVine } from '../../../services/api';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faInfo } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../../store/cartSlice';
 
 
 
-function ModuleGridComic(onAddToCart){
+function ModuleGridComic({ detailsComic }){
     const allComics = useFetchApiComicVine();
     const [ randomComics, setRandomComics ] = useState([]);
     const [ activeDot, setActiveDot ] = useState(0); 
@@ -90,6 +91,9 @@ function ModuleGridComic(onAddToCart){
                                 <LiComic key={comic.id}>
                                     <ComicImageContainer>
                                         <ImgComic src={comic.image.original_url} alt={comic.name}/>
+
+                                        <IconToDetails icon={faInfo} onClick={() => detailsComic(comic)}/>
+
                                         <CartIconShopping icon={faCartShopping} onClick={() => handleAddToCart(comic)} />
                                     </ComicImageContainer>
 
