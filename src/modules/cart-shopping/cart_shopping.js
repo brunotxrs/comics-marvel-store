@@ -1,12 +1,13 @@
-import { faClose, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { 
     ContainerCart, BoxIconClosed, StyleIconClosed, 
     BoxTotalPay, TextTotalPay, BoxItems,
     UlItems, LiItems, SpanItems, DivIconsItems,
     StyleIconMinus, StyleIconMore, StyleCount,
-    ImgItems, BoxInfoItems, H2InfoItems, PInfoItems
+    ImgItems, BoxInfoItems, H2InfoItems, PInfoItems, IconTrash, IconTicket
  } from "./styles";
 import { useSelector } from "react-redux";
+import { faClose, faMinus, faPlus, faTicket } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 
 
@@ -25,7 +26,7 @@ function CartShopping({onCloseCart}){
                     <StyleIconClosed icon={faClose} onClick={onCloseCart}/>
                 </BoxIconClosed>
                 <BoxTotalPay>
-                    <TextTotalPay>Subtotal: {subtotal.toFixed(2)}</TextTotalPay>
+                    <TextTotalPay>Subtotal: R$ {subtotal.toFixed(2)}</TextTotalPay>
                 </BoxTotalPay>
 
                 <BoxItems>
@@ -39,12 +40,14 @@ function CartShopping({onCloseCart}){
                                         <BoxInfoItems>
                                             <H2InfoItems>{item.name}</H2InfoItems>
                                             <PInfoItems>R$ {item.price}</PInfoItems>
+                                            <IconTicket icon={faTicket}/>
                                         </BoxInfoItems>
                                     </SpanItems>
 
                                     <DivIconsItems>
+                                        <IconTrash icon={faTrashCan}/>
                                         <StyleIconMinus icon={faMinus}/>
-                                        <StyleCount>{0}</StyleCount>
+                                        <StyleCount>{item.quantity}</StyleCount>
                                         <StyleIconMore icon={faPlus}/>
                                     </DivIconsItems>
                                 </LiItems>
