@@ -6,9 +6,7 @@ import logoCMS from '../../assets/svg/logo-comics-marvel-store.svg'
 import { faBars, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 
-function Header(){
-
-
+function Header({onCartClick}){
 
     return(
         <>
@@ -23,7 +21,7 @@ function Header(){
 
                 <BoxRight>
                     <CountCart>0</CountCart>
-                    <StyleIcon icon={faCartShopping} />
+                    <StyleIcon icon={faCartShopping} onClick={onCartClick}/>
                 </BoxRight>
 
             </Container>
