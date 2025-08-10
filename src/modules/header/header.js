@@ -27,9 +27,9 @@ function Header({onCartClick}){
                         </BoxRight>
                     ))
                 ):(
-                    <BoxRight>
+                    <BoxRight onClick={onCartClick}>
                         <CountCart>0</CountCart>
-                        <StyleIcon icon={faCartShopping} onClick={onCartClick}/>
+                        <StyleIcon icon={faCartShopping} />
                     </BoxRight>
                 )}
 
