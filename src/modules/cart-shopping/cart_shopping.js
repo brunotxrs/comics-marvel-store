@@ -3,21 +3,38 @@ import {
     BoxTotalPay, TextTotalPay, BoxItems,
     UlItems, LiItems, SpanItems, DivIconsItems,
     StyleIconMinus, StyleIconMore, StyleCount,
-    ImgItems, BoxInfoItems, H2InfoItems, PInfoItems, IconTrash, IconTicket
+    ImgItems, BoxInfoItems, H2InfoItems, PInfoItems, 
+    IconTrash, IconTicket, TextNoItems, NoItemsCart
  } from "./styles";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { faClose, faMinus, faPlus, faTicket } from "@fortawesome/free-solid-svg-icons";
-import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faCircleXmark, faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { decrementQuantity, incrementQuantity, removeFromCart } from "../../store/cartSlice";
 
 
 
 
 function CartShopping({onCloseCart}){
     const cartItems = useSelector(state => state.cart.items);
+    const dispatch = useDispatch();
 
     // Calcule o subtotal
     const subtotal = cartItems.reduce((acc, item) => acc + (parseFloat(item.price) * item.quantity), 0);
 
+    // Função para remover o item
+    const handleRemoveFromCart = (id) => {
+        dispatch(removeFromCart(id));
+    }
+
+    // Função para incrementar item
+    const handleIncrementQuantity = (id) => {
+        dispatch(incrementQuantity(id));
+    }
+
+    // Função para Decrementar item
+    const handleDecrementQuantity = (id) => {
+        dispatch(decrementQuantity(id));
+    }
 
     return(
         <>
@@ -45,15 +62,21 @@ function CartShopping({onCloseCart}){
                                     </SpanItems>
 
                                     <DivIconsItems>
-                                        <IconTrash icon={faTrashCan}/>
-                                        <StyleIconMinus icon={faMinus}/>
+                                        <IconTrash icon={faTrashCan} onClick={() => handleRemoveFromCart(item.id)}/>
+                                            
+                                        <StyleIconMinus icon={faMinus} onClick={() => handleDecrementQuantity(item.id)}/>
+
                                         <StyleCount>{item.quantity}</StyleCount>
-                                        <StyleIconMore icon={faPlus}/>
+
+                                        <StyleIconMore icon={faPlus} onClick={() => handleIncrementQuantity(item.id)}/>
                                     </DivIconsItems>
                                 </LiItems>
                             ))
                         ): (
-                            <p>O carrinho está vazio.</p>
+                            <>
+                                <NoItemsCart icon={faCircleXmark}/>
+                                <TextNoItems>O carrinho está vazio.</TextNoItems>
+                            </>
                         )}
                     </UlItems>
 
