@@ -361,25 +361,61 @@ export const NavDotComic = styled.span`
   transition: background-color 0.3s ease;
 `;
 
-export const ComicImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-`;
 
-export const CartIconShopping = styled(FontAwesomeIcon)`
+export const IconToDetails = styled(FontAwesomeIcon)`
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 0.625rem;
+  left: 0.625rem;
   color: white;
   background-color: var(--first-color);
-  border-radius: 4px;
-  padding: 8px;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
   cursor: pointer;
-  box-shadow: 0 2px 4px var(--third-color);
+  box-shadow: 0 0.125rem 0.25rem var(--third-color);
   transition: transform 0.2s ease-in-out;
   z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 
   &:hover {
     transform: scale(1.1);
   }
+`;
+
+export const CartIconShopping = styled(FontAwesomeIcon)`
+  position: absolute;
+  bottom: 0.625rem;
+  right: 0.625rem;
+  color: white;
+  background-color: var(--first-color);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 0.125rem 0.25rem var(--third-color);
+  transition: transform 0.2s ease-in-out;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
+
+export const ComicImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+
+  &:hover {
+    ${IconToDetails} {
+      opacity: 1;
+    }
+
+    ${CartIconShopping} {
+      opacity: 1;
+    }
+  
+  }
+
 `;
