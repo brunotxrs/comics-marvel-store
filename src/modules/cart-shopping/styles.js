@@ -7,7 +7,7 @@ export const ContainerCart = styled.section  `
   top: 0;
   left: 0;
   width: 100%;
-  height: 94%;
+  height: 95%;
   background-color: var(--third-color); 
   z-index: 100; 
   display: flex;
@@ -57,31 +57,32 @@ export const UlItems = styled.ul `
   gap: 2.5rem;
   padding: 1.25rem 0;
   overflow-y: scroll;
-  height: 95%;
+  height: 90%;
   scrollbar-width: none;
+  align-items: center;
  
 `;
 
 export const LiItems = styled.li `
   display: flex;
   flex-direction: column;
-  width: 370px;
+  width: 20.9375rem;
   margin: 0 auto;
-  height: 200px;
+  height: 12.5rem;
 
 `;
 
 export const SpanItems = styled.span `
   width: 100%;
-  height: 150px;
+  height: 9.375rem;
   display: flex;
   flex-direction: row;
 
 `;
 
 export const ImgItems = styled.img `
-  width: 100px;
-  height: 150px;
+  width: 6.25rem;
+  height: 9.375rem;
 
 `;
 
@@ -99,7 +100,7 @@ export const BoxInfoItems = styled.span `
 export const H2InfoItems = styled.h2 `
   font-family: var(--font-nuckle);
   color: var(--third-color);
-  font0size: var(--subtitle);
+  font-size: var(--title);
 `;
 
 export const PInfoItems = styled.p `
@@ -120,12 +121,12 @@ export const DivIconsItems = styled.div `
   flex-direction: row;
   height: 3.125rem;
   align-items: center;
-  width: 370px;
+  width: 20.9375rem;
   margin: auto;
   justify-content: space-evenly;
   padding: 1.25rem 0;
   background: var(--second-color);
-  border-top: 1px solid var(--first-color);
+  border-top: 0.0625rem solid var(--first-color);
 `;
 
 export const IconTrash = styled(FontAwesomeIcon)`
@@ -154,4 +155,21 @@ export const StyleIconMore = styled(FontAwesomeIcon) `
   width: 1.25rem;
   height: 1.25rem;
   color: var(--first-color);
-`
+`;
+
+export const TextNoItems = styled.p `
+  color: var(--second-color);
+  font-family: var(--font-nuckle);
+  font-size: var(--subtitle);
+
+
+`;
+
+export const NoItemsCart = styled(FontAwesomeIcon) `
+  background: var(--first-color);
+  color: var(--second-color);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+
+`;
