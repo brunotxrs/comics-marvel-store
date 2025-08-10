@@ -347,6 +347,7 @@ export const NavDotsContainerComic = styled.div`
   position: relative;
   z-index: 10;
   padding: 0 0 3.125rem 0;
+  margin-bottom: 1.25rem;
 `;
 
 export const NavDotComic = styled.span`
