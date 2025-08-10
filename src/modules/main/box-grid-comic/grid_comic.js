@@ -4,10 +4,10 @@ import {
     Loader, LiComic, ImgComic, H2Comic,
     PriceP, NavDotsContainerComic, NavDotComic, 
     ComicImageContainer, CartIconShopping,
-    IconToDetails
+    IconToDetails, StarIconRare
 } from '../styles';
 import { useFetchApiComicVine } from '../../../services/api';
-import { faCartShopping, faInfo } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faInfo, faStar } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../../store/cartSlice';
 
@@ -33,16 +33,26 @@ function ModuleGridComic({ detailsComic }){
             // Pega os 12 primeiros
             const sliced = shuffled.slice(0, 12);
             
-            const comicsWithPrice = sliced.map(comic => ({
-                ...comic,
-                price: (Math.random() * (20 - 5) + 5).toFixed(2) // Gera um preço entre 5 e 20 com 2 casas decimais
-            }));
+            const comicsWithPriceAndRarity = sliced.map(comic => {
+                const isRare = Math.random() < 0.1; // 10% de chance de ser raro
+                
+                // Exibe no console para verificação
+                if (isRare) {
+                    console.log(`Quadrinho raro encontrado: ${comic.name}`);
+                }
+
+                return {
+                    ...comic,
+                    price: (Math.random() * (20 - 5) + 5).toFixed(2),
+                    isRare: isRare // Adiciona a propriedade de raridade
+                };
+            });
             
             // Separa em 3 listas de 4
             setRandomComics([
-                comicsWithPrice.slice(0, 4),
-                comicsWithPrice.slice(4, 8),
-                comicsWithPrice.slice(8, 12)
+                comicsWithPriceAndRarity.slice(0, 4),
+                comicsWithPriceAndRarity.slice(4, 8),
+                comicsWithPriceAndRarity.slice(8, 12)
             ]);
         } 
     }, [allComics]);
@@ -93,6 +103,8 @@ function ModuleGridComic({ detailsComic }){
                                         <ImgComic src={comic.image.original_url} alt={comic.name}/>
 
                                         <IconToDetails icon={faInfo} onClick={() => detailsComic(comic)}/>
+
+                                        {comic.isRare && <StarIconRare icon={faStar} />}
 
                                         <CartIconShopping icon={faCartShopping} onClick={() => handleAddToCart(comic)} />
                                     </ComicImageContainer>

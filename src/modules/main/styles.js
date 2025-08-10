@@ -361,6 +361,15 @@ export const NavDotComic = styled.span`
   transition: background-color 0.3s ease;
 `;
 
+export const StarIconRare = styled(FontAwesomeIcon)`
+    position: absolute;
+    top: 0.625rem;
+    left: 0;
+    color: #FFD700;
+    font-size: 1.5rem;
+    z-index: 10;
+    filter: drop-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.5));
+`;
 
 export const IconToDetails = styled(FontAwesomeIcon)`
   position: absolute;
@@ -401,7 +410,6 @@ export const CartIconShopping = styled(FontAwesomeIcon)`
     transform: scale(1.1);
   }
 `;
-
 
 export const ComicImageContainer = styled.div`
   position: relative;
