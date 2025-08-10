@@ -132,7 +132,7 @@ export const CountCart = styled.span `
     color: var(--second-color);
     font-family: var(--font-nuckle);
     font-size: var(--title);
-    padding: 0.16rem 0.8rem 0;
+    padding: 0.16rem 0.8rem;
     border-radius: 0.25rem;
     bottom: 1.3125rem;
     display: flex;
