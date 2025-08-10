@@ -7,6 +7,9 @@ import {
 } from '../styles';
 import { useFetchApiComicVine } from '../../../services/api';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../../store/cartSlice';
+
 
 
 function ModuleGridComic(onAddToCart){
@@ -14,6 +17,12 @@ function ModuleGridComic(onAddToCart){
     const [ randomComics, setRandomComics ] = useState([]);
     const [ activeDot, setActiveDot ] = useState(0); 
     const containerRef = useRef(null); 
+
+    const dispatch = useDispatch();
+
+    const handleAddToCart = (comic) => {
+        dispatch(addToCart(comic))
+    }
 
     useEffect(() => {
         if(allComics && allComics.length > 0){
@@ -37,6 +46,8 @@ function ModuleGridComic(onAddToCart){
         } 
     }, [allComics]);
 
+
+    
     // Lógica para detectar o scroll e mudar o pontinho ativo
     useEffect(() => {
         const handleScroll = () => {
@@ -79,7 +90,7 @@ function ModuleGridComic(onAddToCart){
                                 <LiComic key={comic.id}>
                                     <ComicImageContainer>
                                         <ImgComic src={comic.image.original_url} alt={comic.name}/>
-                                        <CartIconShopping icon={faCartShopping} onClick={() => onAddToCart(comic)} />
+                                        <CartIconShopping icon={faCartShopping} onClick={() => handleAddToCart(comic)} />
                                     </ComicImageContainer>
 
                                     <H2Comic>{comic.name}</H2Comic>
