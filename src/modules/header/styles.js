@@ -10,7 +10,7 @@ export const Container = styled.header `
     bottom: 0;
     width: 100vw;
     background: white;
-    z-index: 50;
+    z-index: 200;
     height: 3.4375rem;
 
     @media screen and (width > 48rem) {
@@ -64,6 +64,7 @@ export const StyleIcon = styled(FontAwesomeIcon) `
     width: 1.875rem;
     height: 1.5rem;
     color: var(--first-color);
+    padding: 0.625rem 0;
 
     @media screen and (width > 48rem) {
         width: 2.5rem;
@@ -123,18 +124,20 @@ export const BoxRight = styled.div `
 `;
 
 export const CountCart = styled.span `
+    width: 1.25rem;
     height: 1.120rem;
     position: absolute;
-    right: 0.18rem;
+    right: 0;
     background: var(--first-color);
     color: var(--second-color);
     font-family: var(--font-nuckle);
     font-size: var(--title);
-    padding: 0.125rem 0.3125rem;
+    padding: 0.16rem 0.8rem 0;
     border-radius: 0.25rem;
-    bottom: 1.4rem;
+    bottom: 1.3125rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     border-bottom-left-radius: 0.3125rem;
 
     @media screen and (width > 48rem){
