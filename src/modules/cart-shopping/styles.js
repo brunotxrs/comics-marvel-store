@@ -42,7 +42,7 @@ export const BoxTotalPay = styled.div `
 
 export const TextTotalPay = styled.h2 `
   color: var(--second-color);
-
+  font-family: var(--font-nuckle);
 `;
 
 export const BoxItems = styled.div `
@@ -65,23 +65,23 @@ export const UlItems = styled.ul `
 export const LiItems = styled.li `
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
+  width: 370px;
+  margin: 0 auto;
+  height: 200px;
 
 `;
 
 export const SpanItems = styled.span `
   width: 100%;
-  height: 100%;
+  height: 150px;
   display: flex;
   flex-direction: row;
-  gap: 1.25rem;
 
 `;
 
 export const ImgItems = styled.img `
-  width: 50%;
-  height: 100%;
+  width: 100px;
+  height: 150px;
 
 `;
 
@@ -92,14 +92,26 @@ export const BoxInfoItems = styled.span `
   align-items: center;
   text-align: center;
   width: 100%;
+  background: var(--second-color);
 
 `
 
 export const H2InfoItems = styled.h2 `
-
+  font-family: var(--font-nuckle);
+  color: var(--third-color);
+  font0size: var(--subtitle);
 `;
 
 export const PInfoItems = styled.p `
+  font-family: var(--font-nuckle);
+  color: var(--third-color);
+  font0size: var(--title);
+`;
+
+export const IconTicket = styled(FontAwesomeIcon)`
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--first-color);
 
 `;
 
@@ -108,10 +120,18 @@ export const DivIconsItems = styled.div `
   flex-direction: row;
   height: 3.125rem;
   align-items: center;
-  width: 50%;
+  width: 370px;
+  margin: auto;
   justify-content: space-evenly;
   padding: 1.25rem 0;
   background: var(--second-color);
+  border-top: 1px solid var(--first-color);
+`;
+
+export const IconTrash = styled(FontAwesomeIcon)`
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--first-color);
 
 `;
 
@@ -124,7 +144,10 @@ export const StyleIconMinus = styled(FontAwesomeIcon) `
 export const StyleCount = styled.p `
   width: 1.25rem;
   height: 1.25rem;
-  color: var(--third-color);
+  font-family: var(--font-nuckle);
+  color: var(--first-color);
+  text-align: center;
+  font-size: var(--title);
 `;
 
 export const StyleIconMore = styled(FontAwesomeIcon) `
