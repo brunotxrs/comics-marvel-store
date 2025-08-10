@@ -173,3 +173,80 @@ export const NoItemsCart = styled(FontAwesomeIcon) `
   border-radius: 50%;
 
 `;
+
+
+export const CouponInputContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+`;
+
+export const CouponInput = styled.input`
+  padding: 0.5rem;
+  border: 0.0625rem solid var(--first-color);
+  border-radius: 0.25rem;
+  background-color: var(--third-color);
+  color: var(--second-color);
+  flex: 1;
+  outline:none;
+
+  &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+  }
+`;
+
+export const CouponButton = styled.button`
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: var(--first-color);
+  color: var(--third-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  outline: none;
+
+  &:hover {
+      background-color: #004d40;
+  }
+`;
+
+export const MessageBox = styled.div`
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--first-color);
+  color: var(--third-color);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+export const MessageBoxContent = styled.p`
+  margin: 0;
+  font-family: var(--font-nuckle);
+  font-size: var(--paragraph);
+`;
+
+export const CloseButton = styled.button`
+  background: none;
+  border: none;
+  color: var(--third-color);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  opacity: 0.7;
+
+  &:hover {
+      opacity: 1;
+  }
+`;
+
