@@ -21,9 +21,9 @@ function Header({onCartClick}){
             
                 {totalItemCart.length > 0 ? (
                     totalItemCart.map((total) => (
-                        <BoxRight key={total.id}>
+                        <BoxRight key={total.id} onClick={onCartClick}>
                             <CountCart>{totalItem}</CountCart>
-                            <StyleIcon icon={faCartShopping} onClick={onCartClick}/>
+                            <StyleIcon icon={faCartShopping}/>
                         </BoxRight>
                     ))
                 ):(
