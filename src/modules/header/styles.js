@@ -58,7 +58,7 @@ export const BoxLeft = styled.div `
     }
     
 
-`
+`;
 
 export const StyleIcon = styled(FontAwesomeIcon) `
     width: 1.875rem;
@@ -82,7 +82,7 @@ export const StyleIcon = styled(FontAwesomeIcon) `
         height: 2rem;
     
     }
-`
+`;
 
 export const Img = styled.img`
     width: 6.25rem;
@@ -120,18 +120,22 @@ export const BoxRight = styled.div `
         height: 100%;
     }
 
-`
+`;
 
 export const CountCart = styled.span `
-    height: 1.375rem;
+    height: 1.120rem;
     position: absolute;
-    top: 0.65rem;
-    right: 0.3125rem;
+    right: 0.18rem;
+    background: var(--first-color);
     color: var(--second-color);
-    font-family: var(--font-cabinet_grotesk);
+    font-family: var(--font-nuckle);
     font-size: var(--title);
-    padding: 0.0625rem 0.3125rem;
-    border-radius: 1.25rem;
+    padding: 0.125rem 0.3125rem;
+    border-radius: 0.25rem;
+    bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    border-bottom-left-radius: 0.3125rem;
 
     @media screen and (width > 48rem){
         font-size: var(--title);
@@ -151,4 +155,4 @@ export const CountCart = styled.span `
         font-size: var(--paragraph);
     }
 
-`
+`;
