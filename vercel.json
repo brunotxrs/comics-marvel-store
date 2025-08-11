@@ -1,8 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api"
+      "source": "/api/comic-vine",
+      "destination": "/api/comic-vine.js"
+    },
+    {
+      "source": "/api/marvelapi",
+      "destination": "/api/marvelapi.js"
     }
   ]
 }
