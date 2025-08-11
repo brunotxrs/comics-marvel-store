@@ -19,12 +19,35 @@ function ModuleGridComic({ detailsComic }){
     const [ randomComics, setRandomComics ] = useState([]);
     const [ activeDot, setActiveDot ] = useState(0); 
     const containerRef = useRef(null); 
-
+    
+    const [itemsPerSlide, setItemsPerSlide] = useState(4); 
+    
     const dispatch = useDispatch();
+
 
     const handleAddToCart = (comic) => {
         dispatch(addToCart(comic))
     }
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 1024){
+                setItemsPerSlide(9);
+            }else if(window.innerWidth >= 768){
+                setItemsPerSlide(6);
+            }else {
+                setItemsPerSlide(4);
+            }
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+
+    }, []);
+
+
 
     useEffect(() => {
         if(allComics && allComics.length > 0){
@@ -32,7 +55,7 @@ function ModuleGridComic({ detailsComic }){
             const shuffled = [...allComics].sort(() => 0.5 - Math.random());
             
             // Pega os 12 primeiros
-            const sliced = shuffled.slice(0, 12);
+            const sliced = shuffled.slice(0, 36);
             
             const comicsWithPriceAndRarity = sliced.map(comic => {
                 const isRare = Math.random() < 0.1; // 10% de chance de ser raro
@@ -49,14 +72,16 @@ function ModuleGridComic({ detailsComic }){
                 };
             });
             
-            // Separa em 3 listas de 4
-            setRandomComics([
-                comicsWithPriceAndRarity.slice(0, 4),
-                comicsWithPriceAndRarity.slice(4, 8),
-                comicsWithPriceAndRarity.slice(8, 12)
-            ]);
+            // Lógica para separar em listas dinamicamente com base em itemsPerSlide
+            const numberOfSlides = Math.ceil(comicsWithPriceAndRarity.length / itemsPerSlide);
+            const newRandomComics = [];
+            for (let i = 0; i < numberOfSlides; i++) {
+                newRandomComics.push(comicsWithPriceAndRarity.slice(i * itemsPerSlide, (i + 1) * itemsPerSlide));
+            }
+            
+            setRandomComics(newRandomComics);
         } 
-    }, [allComics]);
+    }, [allComics, itemsPerSlide]);
 
 
     
@@ -111,7 +136,7 @@ function ModuleGridComic({ detailsComic }){
                                     </ComicImageContainer>
 
                                     <H2Comic>{comic.name}</H2Comic>
-                                    <PriceP>R${comic.price}</PriceP>
+                                    <PriceP>R$ {comic.price}</PriceP>
                                 </LiComic>
                             ))}
                         </BoxGridComic>
