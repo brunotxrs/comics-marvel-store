@@ -17,6 +17,17 @@ export const ContainerCart = styled.section  `
   padding: 1.25rem;
   overflow: hidden;
 
+  @media screen and (width > 48rem) {
+    width: 50%;
+    height: 100%;
+    z-index: 200;
+  
+  
+  }
+
+
+
+
 `;
 
 export const BoxIconClosed = styled.span `
@@ -48,6 +59,15 @@ export const TextTotalPay = styled.h2 `
 export const BoxItems = styled.div `
   width: 100%;
   height: 100%;
+
+
+   @media screen and (width > 48rem){
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+   
+   }
 
 `;
 
