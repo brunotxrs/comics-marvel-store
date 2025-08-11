@@ -13,30 +13,51 @@ export const Container = styled.header `
     z-index: 200;
     height: 3.4375rem;
 
-    @media screen and (width > 48rem) {
-        height: 10.625rem;
+    @media screen and (width > 48rem) and (orientation: retrate) {
+        height: 4rem;
     
     }
 
-    @media screen and (width > 64rem) {
-        justify-content: flex-start;
-        padding: 0.3125rem 3.125rem;
+    @media screen and (width > 64rem) (orientation: retrate) {
+        height: 4rem;
+        padding:0 0 0.625rem 0;
+        width: 50vw;
+        left: 25%;
     
     }
 
-
-    @media screen and (width > 64rem) and (orientation: landscape){
-        height: 7rem;
-        max-width: 80rem;
-        margin: auto;
-        display: flex;
-        flex-direction: row;
+    @media screen and (min-width: 768px) and (orientation: landscape){
+        position: relative;
+        left: 0;
+        width: 100%;
         justify-content: space-between;
+        flex-direction: row;
         align-items: center;
+        height: 9rem;
+        margin: 0 auto;
+        padding-left: 50px;
+        padding-bottom: 35px;
     }
+
+
+    @media screen and (min-width: 1024px) and (orientation: landscape){
+        position: relative;
+        left: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        height: 9rem;
+        margin: 0 auto;
+        padding-left: 50px;
+        padding-bottom: 35px;
+        max-width: 1280px;
+
+    }
+
 `;
 
-export const BoxLeft = styled.div `
+export const BoxLeft = styled.div`
     
     left: 1.875rem;
     position: absolute;
@@ -45,11 +66,6 @@ export const BoxLeft = styled.div `
 
     @media screen and (width > 48rem) {
         left: 3.75rem;
-    }
-
-    @media screen and (width > 64rem) {
-        right: 3.75rem;
-        justify-self: right;
     }
 
     @media screen and (width > 64rem) and (orientation: landscape) {
@@ -73,9 +89,8 @@ export const StyleIcon = styled(FontAwesomeIcon) `
     }
 
     @media screen and (width > 64rem) {
-        width: 4.375rem;
-        height: 4.375rem;
-    
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
     @media screen and (width > 64rem) and (orientation: landscape) {
@@ -83,6 +98,16 @@ export const StyleIcon = styled(FontAwesomeIcon) `
         height: 2rem;
     
     }
+`;
+
+export const BoxIconUser = styled.span `
+
+    @media screen and (width > 64rem) and (orientation: landscape){
+        position: absolute;
+        right: 15%;
+    
+    }
+
 `;
 
 export const Img = styled.img`
@@ -95,6 +120,7 @@ export const Img = styled.img`
 
     @media screen and (width > 64rem) and (orientation: landscape) {
         width: 5rem;
+        display: flex;
     
     }
 
@@ -112,7 +138,7 @@ export const BoxRight = styled.div `
     }
 
     @media screen and (width > 64rem) {
-        right: 10rem;
+
     
     }
 
@@ -142,7 +168,8 @@ export const CountCart = styled.span `
 
     @media screen and (width > 48rem){
         font-size: var(--title);
-        top: 1.25rem;
+        top: 1rem;
+        right: 0.3125rem;
     
     }
 
@@ -158,4 +185,30 @@ export const CountCart = styled.span `
         font-size: var(--paragraph);
     }
 
+`;
+
+export const ContainNavBar = styled.nav `
+    display: none;
+
+    @media screen and (width > 64rem) and (orientation: landscape){
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        left: 0;
+        bottom: 0;
+        background: var(--first-color);
+        height: 40px;
+        color: var(--second-color);
+        align-items: center;
+    
+    }
+
+`;
+
+export const SpanNavBar = styled.span `
+    background: var(--color-first);
+    color: var(--color-second);
+    font-family: var(--font-nuckle);
+    font-size: var(--title);
 `;

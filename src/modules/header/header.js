@@ -1,4 +1,7 @@
-import {  Container, BoxLeft, Img, BoxRight, CountCart, StyleIcon  } from './styles'
+import {  
+    Container, BoxLeft, Img, BoxRight, 
+    CountCart, StyleIcon, BoxIconUser, 
+    ContainNavBar, SpanNavBar  } from './styles'
 import logoCMS from '../../assets/svg/logo-comics-marvel-store.svg';
 import { faBars, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
@@ -16,7 +19,10 @@ function Header({onCartClick}){
                     <StyleIcon icon={faBars} />
                 </BoxLeft>
 
-                <StyleIcon icon={faUser} />
+                <BoxIconUser>
+                    <StyleIcon icon={faUser} />
+                </BoxIconUser>
+
                     <Img src={logoCMS} alt="Comics Marvel Store Logo"/>
             
                 {totalItemCart.length > 0 ? (
@@ -32,6 +38,12 @@ function Header({onCartClick}){
                         <StyleIcon icon={faCartShopping} />
                     </BoxRight>
                 )}
+                <ContainNavBar>
+                    <SpanNavBar>Homer</SpanNavBar>
+                    <SpanNavBar>Shopping</SpanNavBar>
+                    <SpanNavBar>Collations</SpanNavBar>
+                </ContainNavBar>
+                
 
             </Container>
         </>
