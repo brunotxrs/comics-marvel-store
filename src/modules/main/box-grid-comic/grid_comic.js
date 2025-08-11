@@ -6,7 +6,7 @@ import {
     ComicImageContainer, CartIconShopping,
     IconToDetails, StarIconRare
 } from '../styles';
-import { useFetchApiComicVine } from '../../../services/api';
+import { useFetchApiComicVine, useFetchApiMarvel } from '../../../services/api';
 import { faCartShopping, faInfo, faStar } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../../store/cartSlice';
@@ -14,7 +14,8 @@ import { addToCart } from '../../../store/cartSlice';
 
 
 function ModuleGridComic({ detailsComic }){
-    const allComics = useFetchApiComicVine();
+    // const allComics = useFetchApiComicVine();
+    const allComics = useFetchApiMarvel();
     const [ randomComics, setRandomComics ] = useState([]);
     const [ activeDot, setActiveDot ] = useState(0); 
     const containerRef = useRef(null); 
