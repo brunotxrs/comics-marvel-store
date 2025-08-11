@@ -6,7 +6,7 @@ export function useFetchApiMarvel() {
     useEffect(() => {
         const fetchComics = async () => {
             try {
-                // A URL aponta para a sua função serverless na Vercel
+                // A URL aponta para a sua função serverless na Vercel, não para a API da Marvel.
                 const urlServerless = 'https://comics-marvel-store.vercel.app/api/marvelapi';
                 
                 console.log("Tentando buscar dados de:", urlServerless);
@@ -32,6 +32,7 @@ export function useFetchApiMarvel() {
 
     return comics;
 }
+
 
 export function useFetchApiComicVine(){
     const [characters, setCharacters] = useState([]);
