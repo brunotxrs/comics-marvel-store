@@ -1,33 +1,60 @@
 // O bloco `describe` agrupa os testes relacionados à página inicial e ao carrinho.
 describe('Fluxo do Usuário na Loja de Quadrinhos', () => {
 
-  // Antes de cada teste, o Cypress visita a URL da sua aplicação.
-  beforeEach(() => {
+  // Teste o fluxo em um viewport de desktop (ex: 1280x720).
+  it('Deve carregar a página e adicionar um item ao carrinho em um desktop', () => {
+    // Define o tamanho da tela para desktop
+    cy.viewport(1280, 720);
     cy.visit('http://localhost:3000');
-  });
 
-  // Este teste verifica se a página inicial carrega corretamente e exibe os quadrinhos.
-  it('Deve carregar a página inicial e exibir os quadrinhos', () => {
+    // Verifica se a página e os quadrinhos são exibidos corretamente
     cy.title().should('include', 'Comics Marvel Store');
     cy.get('[data-testid="comics-container"]').should('be.visible');
     cy.get('[data-testid="comic-item"]').should('have.length.at.least', 1);
+    
+    // Adiciona o primeiro quadrinho ao carrinho
+    cy.get('[data-testid="add-to-cart-button"]').first().click({ force: true });
+    
+    // Clica no ícone do carrinho e verifica se ele é exibido
+    cy.get('[data-testid="icone-do-carrinho"]').click();
+    cy.get('[data-testid="shopping-cart-container"]').should('be.visible');
   });
 
-  // Este teste simula a adição de um quadrinho ao carrinho.
-  it('Deve adicionar um quadrinho ao carrinho', () => {
-    // Garante que o primeiro item da lista de quadrinhos esteja visível.
-    cy.get('[data-testid="comic-item"]').first().should('be.visible');
+  // Teste o fluxo em um viewport de tablet (ex: iPad em modo paisagem).
+  it('Deve carregar a página e adicionar um item ao carrinho em um tablet', () => {
+    // Define o tamanho da tela para um tablet em paisagem
+    cy.viewport('ipad-2', 'landscape');
+    cy.visit('http://localhost:3000');
+    
+    // Verifica se a página e os quadrinhos são exibidos corretamente
+    cy.title().should('include', 'Comics Marvel Store');
+    cy.get('[data-testid="comics-container"]').should('be.visible');
+    cy.get('[data-testid="comic-item"]').should('have.length.at.least', 1);
 
-    // Agora, em vez de `mouseover`, vamos clicar no botão de adicionar ao carrinho
-    // com a opção `{ force: true }`. Isso força o clique mesmo que o elemento não
-    // esteja visível.
+    // Adiciona o primeiro quadrinho ao carrinho
     cy.get('[data-testid="add-to-cart-button"]').first().click({ force: true });
 
-    // Clica no ícone do carrinho para abri-lo.
+    // Clica no ícone do carrinho e verifica se ele é exibido
     cy.get('[data-testid="icone-do-carrinho"]').click();
+    cy.get('[data-testid="shopping-cart-container"]').should('be.visible');
+  });
+  
+  // Teste o fluxo em um viewport de mobile (ex: iPhone 6/7/8).
+  it('Deve carregar a página e adicionar um item ao carrinho em um mobile', () => {
+    // Define o tamanho da tela para um celular
+    cy.viewport('iphone-6');
+    cy.visit('http://localhost:3000');
 
-    // Em seguida, verifica se a visualização do carrinho está visível.
+    // Verifica se a página e os quadrinhos são exibidos corretamente
+    cy.title().should('include', 'Comics Marvel Store');
+    cy.get('[data-testid="comics-container"]').should('be.visible');
+    cy.get('[data-testid="comic-item"]').should('have.length.at.least', 1);
+    
+    // Adiciona o primeiro quadrinho ao carrinho
+    cy.get('[data-testid="add-to-cart-button"]').first().click({ force: true });
+    
+    // Clica no ícone do carrinho e verifica se ele é exibido
+    cy.get('[data-testid="icone-do-carrinho"]').click();
     cy.get('[data-testid="shopping-cart-container"]').should('be.visible');
   });
 });
-
