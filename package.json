@@ -24,7 +24,7 @@
     "styled-components": "^6.1.19",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "https://comics-marvel-store.vercel.app",
+  "proxy": "https://comicvine.gamespot.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
