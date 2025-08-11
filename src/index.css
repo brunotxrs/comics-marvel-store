@@ -64,7 +64,11 @@ code {
     --title: 1.125rem;
     --subtitle: 1.625rem;
     --paragraph: 0.875rem;
-  } 
+  }
+  
+  html {
+    scrollbar-width: none;
+  }
 }
 
 @media screen and (width > 64rem) {
@@ -72,9 +76,18 @@ code {
     --title: 1.25rem;
     --subtitle: 2.25rem;
     --paragraph: 1rem;
-  } 
-
-  html {
-    scrollbar-width: initial;
   }
+  
+  html {
+    scrollbar-width: none;
+  }
+
+  
+}
+
+
+@media screen and (width > 64rem) and (orientation: landscape) {
+    html {
+      scrollbar-width: initial;
+    }
 }
