@@ -99,7 +99,7 @@ function ModuleGridComic({ detailsComic }){
                     randomComics.map((comics, boxIndex) => (
                         <BoxGridComic key={boxIndex}>
                             {comics.map((comic) => (
-                                <LiComic key={comic.id} data-testid="comics-container">
+                                <LiComic key={comic.id} data-testid="comic-item">
                                     <ComicImageContainer>
                                         <ImgComic src={comic.image.original_url} alt={comic.name}/>
 
