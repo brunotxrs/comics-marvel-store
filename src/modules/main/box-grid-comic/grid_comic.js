@@ -107,7 +107,7 @@ function ModuleGridComic({ detailsComic }){
 
                                         {comic.isRare && <StarIconRare icon={faStar} />}
 
-                                        <CartIconShopping icon={faCartShopping} onClick={() => handleAddToCart(comic)} />
+                                        <CartIconShopping icon={faCartShopping} onClick={() => handleAddToCart(comic)} data-testid="add-to-cart-button"/>
                                     </ComicImageContainer>
 
                                     <H2Comic>{comic.name}</H2Comic>
