@@ -13,8 +13,7 @@ const slideUp = keyframes`
   }
 `;
 
-export const MainContainer = styled.main `
-  
+export const MainContainer = styled.main `  
 `;
 
 export const BoxInfo = styled.div `
@@ -78,6 +77,7 @@ export const DivInfo = styled.div `
     width: 31.25rem;
   
   }
+
 `;
 
 export const H2Info = styled.h2 `
@@ -174,6 +174,12 @@ export const ComicShopDiv = styled.div `
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+
+  @media screen and (width > 48rem) and (orientation: landscape){
+    width: 15rem;
+    height: 10rem;
+    justify-content: initial;
+  }
 `;
 
 export const ImgComicShop = styled.img `
@@ -187,6 +193,10 @@ export const DivComicShop = styled.div `
   flex-direction: column;
   align-items: center;
   gap: 0.9375rem;
+
+  @media screen and (width > 48rem) and (orientation: landscape){
+    height: 0;
+  }
 `;
 
 export const H2ComicShop = styled.h2 `
@@ -217,6 +227,19 @@ export const BoxBanner = styled.div `
   margin: 0 auto;
   padding: 0 0 1.25rem 0;
   gap: 1.25rem;
+
+
+  @media screen and (width > 48rem){
+    
+    display: flex;
+    flex-direction: row;
+  
+  }
+
+  @media screen and (width > 68rem) and (orientation: landscape){
+    max-width: 68rem;
+    margin: auto;
+  }
   
 `;
 
@@ -228,6 +251,12 @@ export const LiBanner = styled.li `
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   cursor: pointer;
   overflow: hidden;
+
+  @media screen and (width > 48rem) {
+    height: 28.125rem;
+    width: 100%;
+  }
+
 `
 
 export const ImgBanner = styled.img `
@@ -290,37 +319,74 @@ export const ParagraphP = styled.p `
 // here area for styles GridComic
 export const ContainerGridComic = styled.div `
   display: flex;
-  flex-wrap: nowrap; /* Impede a quebra de linha dos boxes */
-  overflow-x: scroll; /* Habilita o scroll horizontal */
-  scroll-behavior: smooth; /* Anima o scroll ao clicar nos pontinhos */
-  scroll-snap-type: x mandatory; /* Faz os boxes "encaixarem" ao rolar */
-  -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos iOS */
+  flex-wrap: nowrap; 
+  overflow-x: scroll; 
+  scroll-behavior: smooth; 
+  scroll-snap-type: x mandatory; 
+  -webkit-overflow-scrolling: touch; 
   
-  /* Esconde a barra de rolagem (opcional, mas comum) */
   &::-webkit-scrollbar {
     display: none;
   }
+
+
+
+  @media screen and (width > 68rem) and (orientation: landscape){
+    max-width: 68rem;
+    margin: auto;
+  }
+
 `;
 
 export const BoxGridComic = styled.ul `
-  flex: 0 0 100%; /* Faz com que cada BoxGridComic ocupe 100% da largura do container */
-  scroll-snap-align: center; /* Centraliza o box na tela ao rolar */
+  flex: 0 0 100%; 
+  scroll-snap-align: center; 
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.25rem;
   padding: 1.25rem;
 
+
+  @media screen and (width > 48rem) {
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    flex: 0 0 100%;
+    gap: 0;
+    row-gap: 1.25rem;
+    padding: 0;
+    
+  }
+
 `;
+
 
 export const LiComic = styled.li `
   height: 100%;
   list-style: none;
+
+  @media screen and (width > 48rem) {
+    width: 95%;
+    height: 20.3125rem;
+    background: var(--third-color);
+    padding: 0.625rem 0 0 0 ;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
   
 `;
 
 export const ImgComic = styled.img `
   height: 15.625rem;
   width: 100%;
+  
+  @media screen and (width > 48rem) {
+    width: 12.5rem;
+  
+  }
+
+
 `;
 
 export const PriceP = styled.p `
@@ -328,7 +394,12 @@ export const PriceP = styled.p `
   font-size: var(--paragraph);
   font-family: var(--font-nuckle);
   text-align: center;
-  padding: 0.3125rem 0 0 0 ;
+  padding: 0.3125rem 0 0 0;
+
+  @media screen and (width > 48rem) {
+    color: var(--second-color);
+  }
+
 
 `;
 
@@ -338,6 +409,23 @@ export const H2Comic = styled.h2 `
   color: var(--third-color);
   text-align: center;
   align-content: start;
+
+  width: 12.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media screen and (width > 48rem) {
+    color: var(--second-color);
+    bottom: 0.625rem;
+    margin: 0 auto;
+    width: 15.625rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  
+  }
+
 `;
 
 export const NavDotsContainerComic = styled.div`
@@ -389,6 +477,12 @@ export const IconToDetails = styled(FontAwesomeIcon)`
   &:hover {
     transform: scale(1.1);
   }
+
+
+  @media screen and (width > 48rem) {
+    bottom: 0.625rem;
+  
+  }
 `;
 
 export const CartIconShopping = styled(FontAwesomeIcon)`
@@ -409,6 +503,12 @@ export const CartIconShopping = styled(FontAwesomeIcon)`
   &:hover {
     transform: scale(1.1);
   }
+
+  @media screen and (width > 48rem) {
+    bottom: 0.625rem;
+  
+  }
+
 `;
 
 export const ComicImageContainer = styled.div`
@@ -424,6 +524,15 @@ export const ComicImageContainer = styled.div`
       opacity: 1;
     }
   
+  }
+
+  @media screen and (width > 48rem){
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        position: initial;
+        
   }
 
 `;
