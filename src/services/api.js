@@ -1,39 +1,5 @@
 import { useEffect, useState } from "react"; 
 
-export function useFetchApiMarvel() {
-    const [comics, setComics] = useState([]);
-
-    useEffect(() => {
-        const fetchComics = async () => {
-            try {
-                // A URL aponta para a sua função serverless na Vercel, não para a API da Marvel.
-                const urlServerless = 'https://comics-marvel-store.vercel.app/api/marvelapi';
-                
-                console.log("Tentando buscar dados de:", urlServerless);
-
-                const response = await fetch(urlServerless);
-
-                if (!response.ok) {
-                    throw new Error(`Erro na requisição para ${urlServerless}: ${response.statusText}`);
-                }
-
-                const data = await response.json();
-                
-                console.log('Dados da API Marvel:', data);
-                setComics(data);
-
-            } catch (error) {
-                console.error("Erro ao buscar quadrinhos da Marvel:", error);
-            }
-        };
-
-        fetchComics();
-    }, []);
-
-    return comics;
-}
-
-
 export function useFetchApiComicVine(){
     const [characters, setCharacters] = useState([]);
     
