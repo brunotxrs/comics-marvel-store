@@ -11,7 +11,7 @@ export function useFetchApiComicVine(){
                 const isLocalhost = window.location.hostname === 'localhost';
                 const baseUrl = isLocalhost ? 'https://comics-marvel-store.vercel.app' : '';
                 
-                const urlServerless = `${baseUrl}/api/comic-vine/?api_key=${KEY_API}&format=json&limit=20`;
+                const urlServerless = `${baseUrl}/api/comic-vine/?api_key=${KEY_API}&format=json&limit=36`;
 
                 // Use fetch nativo do navegador para a requisição
                 const response = await fetch(urlServerless);
