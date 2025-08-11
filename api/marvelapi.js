@@ -6,9 +6,8 @@ export default async function handler(req, res) {
         const PUBLIC_KEY = process.env.MARVEL_PUBLIC_KEY;
         const PRIVATE_KEY = process.env.MARVEL_PRIVATE_KEY;
 
-        // Verifica se as chaves existem
         if (!PUBLIC_KEY || !PRIVATE_KEY) {
-            return res.status(500).json({ error: 'As chaves da API da Marvel não foram configuradas corretamente.' });
+            return res.status(500).json({ error: 'As chaves da API da Marvel não foram configuradas.' });
         }
         
         const timeStamp = new Date().getTime();
