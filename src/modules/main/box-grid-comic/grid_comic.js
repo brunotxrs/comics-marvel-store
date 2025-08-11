@@ -94,12 +94,12 @@ function ModuleGridComic({ detailsComic }){
 
     return(
         <>
-            <ContainerGridComic ref={containerRef}>
+            <ContainerGridComic ref={containerRef} data-testid="comics-container">
                 {randomComics.length > 0 ? (
                     randomComics.map((comics, boxIndex) => (
                         <BoxGridComic key={boxIndex}>
                             {comics.map((comic) => (
-                                <LiComic key={comic.id}>
+                                <LiComic key={comic.id} data-testid="comics-container">
                                     <ComicImageContainer>
                                         <ImgComic src={comic.image.original_url} alt={comic.name}/>
 
