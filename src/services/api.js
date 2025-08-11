@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"; 
-import { useEffect, useState } from "react";
 
 export function useFetchApiMarvel() {
     const [comics, setComics] = useState([]);
@@ -33,8 +32,6 @@ export function useFetchApiMarvel() {
 
     return comics;
 }
-
-
 
 export function useFetchApiComicVine(){
     const [characters, setCharacters] = useState([]);
