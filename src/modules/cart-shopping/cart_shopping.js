@@ -109,7 +109,7 @@ function CartShopping({onCloseCart}){
 
     return(
         <>
-            <ContainerCart>
+            <ContainerCart data-testid="shopping-cart-container">
                 {message.show && (
                     <MessageBox>
                         <MessageBoxContent>{message.text}</MessageBoxContent>
