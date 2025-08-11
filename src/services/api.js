@@ -1,5 +1,49 @@
 import { useEffect, useState } from "react"; 
-// import md5 from "js-md5";
+import md5 from "js-md5";
+
+export function useFetchApiMarvel() {
+    const [comics, setComics] = useState([]);
+
+    useEffect(() => {
+        const fetchComics = async () => {
+            try {
+                // Suas chaves estão aqui para o desenvolvimento local
+                const PUBLIC_KEY = '16a6689cc985c2e858e4f3ed066cf981';
+                const PRIVATE_KEY = '08321f2952fc07ed52b473963ad75f2e665852bc';
+
+                // Geração do timestamp e hash para autenticação
+                const timeStamp = new Date().getTime();
+                const stringToHash = timeStamp + PRIVATE_KEY + PUBLIC_KEY;
+                const hash = md5(stringToHash);
+
+                // URL da API da Marvel com os parâmetros de autenticação
+                const url = `https://gateway.marvel.com/v1/public/comics?limit=100&ts=${timeStamp}&apikey=${PUBLIC_KEY}&hash=${hash}`;
+
+                console.log("Tentando buscar dados de:", url);
+
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error(`Erro na requisição para ${url}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                
+                console.log('Dados da API Marvel:', data);
+                setComics(data.data.results);
+
+            } catch (error) {
+                console.error("Erro ao buscar quadrinhos da Marvel:", error);
+            }
+        };
+
+        fetchComics();
+    }, []);
+
+    return comics;
+}
+
+
 
 export function useFetchApiComicVine(){
     const [characters, setCharacters] = useState([]);
@@ -37,34 +81,3 @@ export function useFetchApiComicVine(){
 
     return characters;
 }
-
-
-// These comments are the structure for requesting the Marvel API, which is currently under maintenance. 
-
-// const PRIVATE_KEY = '08321f2952fc07ed52b473963ad75f2e665852bc';
-// const PUBLIC_KEY = '16a6689cc985c2e858e4f3ed066cf981';
-
-// const marvelApi = axios.create({
-//   baseURL: 'https://gateway.marvel.com/v1/public/'
-// });
-
-// export const getComics = async () => {
-//   const timeStamp = new Date().getTime();
-//   const stringToHash = timeStamp + PRIVATE_KEY + PUBLIC_KEY;
-//   const hash = md5(stringToHash);
-
-//   try {
-//     const response = await marvelApi.get('comics', {
-//       params: {
-//         ts: timeStamp,
-//         apikey: PUBLIC_KEY,
-//         hash: hash
-//       }
-//     });
-//     return response.data;
-//   } catch (error) {
-//     console.error("Erro ao buscar quadrinhos:", error);
-//     throw error;
-//   }
-// };
-
