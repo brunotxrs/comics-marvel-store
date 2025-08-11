@@ -120,16 +120,15 @@ function CartShopping({onCloseCart}){
                 <BoxIconClosed>
                     <StyleIconClosed icon={faClose} onClick={onCloseCart}/>
                 </BoxIconClosed>
-                {/* <BoxTotalPay>
-                    <TextTotalPay>Subtotal: R$ {subtotal.toFixed(2)}</TextTotalPay>
-                </BoxTotalPay> */}
 
                 <BoxTotalPay>
                     <TextTotalPay>Subtotal: R$ {subtotal.toFixed(2)}</TextTotalPay>
                     {discount > 0 && (
-                        <TextTotalPay>Desconto: - R$ {discount.toFixed(2)}</TextTotalPay>
+                        <>
+                            <TextTotalPay>Desconto: - R$ {discount.toFixed(2)}</TextTotalPay>
+                            <TextTotalPay>Total: R$ {total.toFixed(2)}</TextTotalPay>
+                        </>
                     )}
-                    <TextTotalPay>Total: R$ {total.toFixed(2)}</TextTotalPay>
                 </BoxTotalPay>
 
                 <BoxItems>
@@ -143,8 +142,10 @@ function CartShopping({onCloseCart}){
                                         <BoxInfoItems>
                                             <H2InfoItems>{item.name}</H2InfoItems>
                                             <PInfoItems>R$ {item.price}</PInfoItems>
-                                            {item.isRare && <IconTicket icon={faTicket} />}
-                                            <IconTicket icon={faTicket} onClick={handleToggleCouponInput} />
+                                            
+                                            {item.isRare && <IconTicket icon={faTicket} onClick={handleToggleCouponInput}/>}
+
+                                            {!item.isRare && <IconTicket icon={faTicket} onClick={handleToggleCouponInput} />}
                                         </BoxInfoItems>
                                     </SpanItems>
 
