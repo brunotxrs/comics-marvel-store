@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"; 
-import md5 from "js-md5";
+import { useEffect, useState } from "react";
 
 export function useFetchApiMarvel() {
     const [comics, setComics] = useState([]);
@@ -7,30 +7,21 @@ export function useFetchApiMarvel() {
     useEffect(() => {
         const fetchComics = async () => {
             try {
-                // Suas chaves estão aqui para o desenvolvimento local
-                const PUBLIC_KEY = '16a6689cc985c2e858e4f3ed066cf981';
-                const PRIVATE_KEY = '08321f2952fc07ed52b473963ad75f2e665852bc';
+                // A URL aponta para a sua função serverless na Vercel
+                const urlServerless = 'https://comics-marvel-store.vercel.app/api/marvelapi';
+                
+                console.log("Tentando buscar dados de:", urlServerless);
 
-                // Geração do timestamp e hash para autenticação
-                const timeStamp = new Date().getTime();
-                const stringToHash = timeStamp + PRIVATE_KEY + PUBLIC_KEY;
-                const hash = md5(stringToHash);
-
-                // URL da API da Marvel com os parâmetros de autenticação
-                const url = `https://gateway.marvel.com/v1/public/comics?limit=100&ts=${timeStamp}&apikey=${PUBLIC_KEY}&hash=${hash}`;
-
-                console.log("Tentando buscar dados de:", url);
-
-                const response = await fetch(url);
+                const response = await fetch(urlServerless);
 
                 if (!response.ok) {
-                    throw new Error(`Erro na requisição para ${url}: ${response.statusText}`);
+                    throw new Error(`Erro na requisição para ${urlServerless}: ${response.statusText}`);
                 }
 
                 const data = await response.json();
                 
                 console.log('Dados da API Marvel:', data);
-                setComics(data.data.results);
+                setComics(data);
 
             } catch (error) {
                 console.error("Erro ao buscar quadrinhos da Marvel:", error);
