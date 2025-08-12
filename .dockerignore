@@ -1,0 +1,11 @@
+# Ignora a pasta de dependências do Node.js
+node_modules
+# Ignora a pasta de build do React, pois ela é gerada dentro do contêiner
+build
+# Ignora arquivos de configuração de ambiente
+.env
+.env.local
+# Ignora o diretório do Git
+.git
+# Ignora arquivos de logs
+npm-debug.log

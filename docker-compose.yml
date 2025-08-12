@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  comics-store:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    container_name: comics_store_app
+    restart: always
