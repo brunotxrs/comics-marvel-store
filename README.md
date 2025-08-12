@@ -1,71 +1,82 @@
-# Getting Started with Create React App
+# Comics Marvel Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma loja virtual de quadrinhos, desenvolvida para um desafio técnico. A aplicação consome a API do Comic Vine para exibir uma lista de quadrinhos, permitindo ao usuário explorar os itens e adicioná-los a um carrinho de compras.
+A aplicação foi desenvolvida com foco em uma experiência de usuário fluida e responsiva, garantindo que o layout se adapte a diferentes tamanhos de tela (desktop, tablet e mobile) utilizando uma abordagem "mobile-first".
 
-## Available Scripts
+## 🚀 Tecnologias e Dependências Utilizadas
+O projeto utiliza uma série de bibliotecas e ferramentas para construir a aplicação. Abaixo estão as principais tecnologias e os comandos de instalação:
 
-In the project directory, you can run:
+- **Front-end:** React, JavaScript, HTML5 e CSS3.
+- **Gerenciamento de Estado:** Redux Toolkit para gerenciar o estado global da aplicação.
+``npm install @reduxjs/toolkit react-redux``
 
-### `npm start`
+- **Estilização:** Styled Components para estilização e adaptação de componentes.
+``npm install styled-components``
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Requisições HTTP:** O projeto utiliza o fetch API nativo do navegador para fazer as requisições à API do Comic Vine.
+- **Ícones:** As bibliotecas React Icons e Font Awesome para adicionar ícones à interface.
+``npm install react-icons npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @fortawesome/free-regular-svg-icons @fortawesome/free-brands-svg-icons``
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **API:** A aplicação utiliza a API do Comic Vine. Para facilitar as requisições, foi adicionado um proxy no arquivo package.json:
+``"proxy": "https://comicvine.gamespot.com",``
 
-### `npm test`
+- **Conteinerização:** Docker e NGINX para empacotar a aplicação e garantir que ela rode de forma consistente em qualquer ambiente.
+- **Testes:** Cypress para testes de ponta a ponta (E2E), validando o fluxo do usuário em diferentes viewports.
+``npm install cypress --save-dev``
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🎨 Design e Estilo
+- **Fontes:**
+    - Nuckle Semi-bold
+    - Cabinet Grotesk Exta-bold
+- **Estrutura de Estilização:** A abordagem "mobile-first" foi utilizada, com media queries implementadas no ``index.css`` para adaptar o layout em telas maiores (tablets e desktops). O ``Header`` é um exemplo de componente estilizado com Styled Components e totalmente responsivo.
 
-### `npm run build`
+## 💻 Como Rodar a Aplicação Localmente
+Para rodar a aplicação em modo de desenvolvimento na sua máquina, siga os passos abaixo:
+1. Clone o repositório.
+2. Instale as dependências do projeto:
+``npm install``
+3. Inicie o servidor de desenvolvimento:
+``npm start``
+A aplicação estará disponível em ``http://localhost:3000.``
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🐳 Como Rodar a Aplicação com Docker
+A aplicação foi conteinerizada para garantir a portabilidade. Certifique-se de ter o Docker instalado e rodando.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Na raiz do projeto (onde está o ``Dockerfile``), construa a imagem Docker:
+``docker build -t comics-store .``
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Após a imagem ser construída, execute o contêiner:
+``docker run -p 8080:80 -d comics-store``
 
-### `npm run eject`
+A aplicação estará disponível em ``http://localhost:8080``.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🎁 Cupons de Desconto
+Como parte do desafio, foram criados os seguintes cupons de desconto para serem implementados na aplicação. Estes códigos podem ser utilizados pelos clientes durante o checkout.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+Código do Cupom             Desconto
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+NORMAL10                    10% de desconto
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+RARE20                      20% de desconto 
 
-## Learn More
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Nota: A lógica para a aplicação desses cupons deve ser implementada no código front-end, validando o código inserido pelo usuário e aplicando o desconto correspondente ao carrinho de compras.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## ✅ Como Rodar os Testes E2E com Cypress
+O projeto inclui uma suíte de testes de ponta a ponta para validar o fluxo do usuário em desktop, tablet e mobile.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Inicie o servidor de desenvolvimento da aplicação (veja "Como Rodar a Aplicação Localmente" acima).
 
-### Analyzing the Bundle Size
+2. Abra a interface do Cypress para rodar os testes de forma interativa:
+``npx cypress open``
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. Alternativamente, para rodar os testes em modo "headless" (sem interface gráfica), execute:
+``npx cypress run``
 
-### Making a Progressive Web App
+O Cypress irá executar os testes e gerar um relatório no terminal.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here:: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
+### Conclusão do Desafio
+Este projeto demonstra a capacidade de construir uma aplicação React completa, com testes de integração e conteinerização. Todos os requisitos do desafio foram atendidos com sucesso, garantindo uma aplicação robusta, responsiva e pronta para ser implantada.
